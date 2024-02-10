@@ -20,9 +20,7 @@ public class CandyHardware {
     public Servo servoLeft;
     public Servo servoRight;
 
-    public CandyHardware() {
-
-    }
+    public CandyHardware() {}
 
     public void init(HardwareMap hardwareMap) {
         Assert.assertNotNull(hardwareMap);
@@ -37,8 +35,8 @@ public class CandyHardware {
         backRight = hardwareMap.get(DcMotorEx.class, HardwareIDs.BACK_RIGHT);
 
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
 
         driveMotors = new DcMotorEx[] {frontLeft, frontRight, backRight, backLeft};
@@ -57,16 +55,16 @@ public class CandyHardware {
         servoRight = hardwareMap.get(Servo.class, HardwareIDs.SERVO_RIGHT);
         servoLeft = hardwareMap.get(Servo.class, HardwareIDs.SERVO_LEFT);
 
-        flywheelLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        flywheelLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         flywheelLeft.setPower(0.0);
-        flywheelLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        flywheelLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         flywheelLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        flywheelRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        flywheelRight.setDirection(DcMotorSimple.Direction.REVERSE);
         flywheelRight.setPower(0.0);
-        flywheelRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        flywheelRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         flywheelRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        servoLeft.setPosition(0.0);
-        servoRight.setPosition(1.0);
+        servoLeft.setPosition(1.0);
+        servoRight.setPosition(0.0);
     }
 }

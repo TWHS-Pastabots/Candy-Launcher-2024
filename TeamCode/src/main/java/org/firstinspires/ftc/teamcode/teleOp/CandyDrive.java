@@ -22,6 +22,7 @@ public class CandyDrive extends OpMode {
         telemetry.addData("Status:: ", "started");
         telemetry.update();
     }
+
     @Override
     public void loop() {
         double y = -gamepad1.left_stick_y; // This is reversed
@@ -47,7 +48,6 @@ public class CandyDrive extends OpMode {
             rightFrontPower /= max;
             rightBackPower /= max;
         }
-
         if(gamepad1.dpad_left){
             leftFrontPower = -1;
             rightBackPower = -1;
@@ -80,16 +80,17 @@ public class CandyDrive extends OpMode {
         candyHardware.frontRight.setPower(rightFrontPower);
         candyHardware.backRight.setPower(rightBackPower);
 
-        candyHardware.flywheelLeft.setPower(gamepad2.right_trigger);
-        candyHardware.flywheelRight.setPower(gamepad2.right_trigger);
+        candyHardware.flywheelLeft.setPower(gamepad2.right_trigger * 0.8);
+        candyHardware.flywheelRight.setPower(gamepad2.right_trigger * 0.8);
 
-        if(gamepad2.cross) {
-            candyHardware.servoRight.setPosition(0.0);
-            candyHardware.servoLeft.setPosition(1.0);
-        }
-        else {
+        boolean pushCandy = gamepad2.square;
+        if(pushCandy) {
             candyHardware.servoRight.setPosition(1.0);
             candyHardware.servoLeft.setPosition(0.0);
+        }
+        else {
+            candyHardware.servoRight.setPosition(0.0);
+            candyHardware.servoLeft.setPosition(1.0);
         }
     }
 }
