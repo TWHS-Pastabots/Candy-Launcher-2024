@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.teleOp;
+package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -80,8 +80,8 @@ public class CandyDrive extends OpMode {
         candyHardware.frontRight.setPower(rightFrontPower);
         candyHardware.backRight.setPower(rightBackPower);
 
-        candyHardware.flywheelLeft.setPower(gamepad2.right_trigger * 0.8);
-        candyHardware.flywheelRight.setPower(gamepad2.right_trigger * 0.8);
+        candyHardware.flywheelLeft.setPower(gamepad2.right_trigger * .6);
+        candyHardware.flywheelRight.setPower(gamepad2.right_trigger * 0.6);
 
         boolean pushCandy = gamepad2.square;
         if(pushCandy) {
