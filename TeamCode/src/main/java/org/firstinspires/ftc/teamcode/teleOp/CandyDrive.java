@@ -62,17 +62,17 @@ public class CandyDrive extends OpMode {
         }
         else if (gamepad1.dpad_up)
         {
-            leftFrontPower = 1;
-            rightBackPower = 1;
-            leftBackPower = 1;
-            rightFrontPower = 1;
+            leftFrontPower = -1;
+            rightBackPower = -1;
+            leftBackPower = -1;
+            rightFrontPower = -1;
         }
         else if(gamepad1.dpad_down)
         {
-            leftFrontPower = -1;
-            leftBackPower = -1;
-            rightBackPower = -1;
-            rightFrontPower = -1;
+            leftFrontPower = 1;
+            leftBackPower = 1;
+            rightBackPower = 1;
+            rightFrontPower = 1;
         }
 
         candyHardware.frontLeft.setPower(leftFrontPower);
