@@ -52,6 +52,7 @@ public class CandyHardware {
     {
         flywheelLeft = hardwareMap.get(DcMotorEx.class, HardwareIDs.FLYWHEEL_LEFT);
         flywheelRight = hardwareMap.get(DcMotorEx.class, HardwareIDs.FLYWHEEL_RIGHT);
+
         servoRight = hardwareMap.get(Servo.class, HardwareIDs.SERVO_RIGHT);
         servoLeft = hardwareMap.get(Servo.class, HardwareIDs.SERVO_LEFT);
 
@@ -59,6 +60,7 @@ public class CandyHardware {
         flywheelLeft.setPower(0.0);
         flywheelLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         flywheelLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         flywheelRight.setDirection(DcMotorSimple.Direction.REVERSE);
         flywheelRight.setPower(0.0);
         flywheelRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);

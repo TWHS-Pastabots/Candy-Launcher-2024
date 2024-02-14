@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
-
+// ip to connect is 192.168.43.1
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -25,7 +25,7 @@ public class CandyDrive extends OpMode {
 
     @Override
     public void loop() {
-        double y = -gamepad1.left_stick_y; // This is reversed
+        double y = gamepad1.left_stick_y; // This is reversed
         double x = gamepad1.left_stick_x; // Counteract imperfect strafing
         double z = gamepad1.right_stick_x;
 
@@ -80,8 +80,10 @@ public class CandyDrive extends OpMode {
         candyHardware.frontRight.setPower(rightFrontPower);
         candyHardware.backRight.setPower(rightBackPower);
 
-        candyHardware.flywheelLeft.setPower(gamepad2.right_trigger * .6);
-        candyHardware.flywheelRight.setPower(gamepad2.right_trigger * 0.6);
+        candyHardware.flywheelLeft.setPower(gamepad2.right_trigger * 1);
+        candyHardware.flywheelRight.setPower(gamepad2.right_trigger * 1);
+        candyHardware.flywheelLeft.setPower(gamepad2.left_trigger * .5);
+        candyHardware.flywheelRight.setPower(gamepad2.left_trigger * .5);
 
         boolean pushCandy = gamepad2.square;
         if(pushCandy) {
