@@ -14,12 +14,12 @@ public class CandyDrive extends OpMode {
         candyHardware = new CandyHardware();
         candyHardware.init(hardwareMap);
 
-        telemetry.addData("Status:: ", "initialized");
+        telemetry.addData("Status", "initialized");
         telemetry.update();
     }
 
     public void start() {
-        telemetry.addData("Status:: ", "started");
+        telemetry.addData("Status ", "started");
         telemetry.update();
     }
 
@@ -27,10 +27,11 @@ public class CandyDrive extends OpMode {
     public void loop() {
         double y = gamepad1.left_stick_y; // This is reversed
         double x = gamepad1.left_stick_x; // Counteract imperfect strafing
-        double z = gamepad1.right_stick_x;
+        double z = -gamepad1.right_stick_x;
 
         double leftFrontPower = y + x + z;
         double leftBackPower = y - x + z;
+
         double rightFrontPower = y - x - z;
         double rightBackPower = y + x - z;
 
